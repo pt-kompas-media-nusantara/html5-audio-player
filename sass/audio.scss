@@ -1,0 +1,258 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import 'compass/css3';
+
+$black: #000;
+$red: #f00;
+$white: #fff;
+
+* {
+	@include box-sizing(border-box);
+}
+
+.box-audio {
+	background-color: adjust_color($black, $alpha:-0.7);
+	height: 30px;
+	font-size: 0;
+	width: 100%;
+	position: relative;
+
+	.bar-progress-range,
+	.bar-volume-range {
+		-webkit-appearance: none;
+		-webkit-tap-highlight-color: adjust_color($white, $alpha:-1);
+		margin: 0;
+		cursor: pointer;
+		outline: 0;
+		padding: 0;
+		width: 100%;
+
+
+		&:focus {
+			outline: none;
+		}
+
+		&::-webkit-slider-runnable-track {
+			border: inherit;
+			background-color: transparent;
+			height: 5px;
+		}
+
+		&::-moz-range-track {
+			border: inherit;
+			background-color: transparent;
+			height: 5px;
+		}
+
+		&::-ms-track {
+			border: inherit;
+			border-width: 3px 0;
+			border-color: transparent;
+			color: transparent;
+			background-color: transparent;
+			height: 5px;
+		}
+
+		&::-ms-fill-lower,
+		&::-ms-fill-upper {
+			background-color: transparent;
+		}
+
+		&::-ms-tooltip {
+			display: none;
+		}
+	}
+
+	.controls {
+		height: 30px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+	}
+
+	.bar-progress-wrapper {
+		display: inline-block;
+		width: percentage(130px/300px);
+		height: 30px;
+		position: absolute;
+		top: 0;
+		left: 30px;
+	}
+
+	.bar-progress-current {
+		height: 5px;
+		background-color: adjust_color($white, $alpha:-0.1);
+		position: absolute;
+		left: 0;
+		top: 50%;
+		@include translateY(-50%);
+		width: 0;
+		border-radius: 5px;
+	}
+
+	.bar-progress-range {
+		position: absolute;
+		left: 0;
+		top: 50%;
+		@include translateY(-50%);
+		width: 100%;
+		background-color: adjust_color($white, $alpha:-0.7);
+		border-radius: 5px;
+		height: 5px;
+
+		&::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			width: 10px;
+			height: 5px;
+			border: 0;
+			background-color: $white;
+		}
+
+		&::-moz-range-thumb {
+			width: 10px;
+			height: 5px;
+			border: 0;
+			padding: 0;
+			background-color: $white;
+		}
+
+		&::-ms-thumb {
+			width: 10px;
+			height: 5px;
+			border: 0;
+			background-color: $white;
+		}
+	}
+
+	.bar-time {
+		color: #fff;
+		display: inline-block;
+		font-size: 12px;
+		position: absolute;
+		width: percentage(50px/300px);
+		right: percentage(80px/300px);
+		top: 50%;
+		@include translateY(-50%);
+		text-align: center;
+	}
+
+	.bar-volume-current {
+		//width: percentage(80px/300px);
+		height: 5px;
+		background-color: adjust_color($white, $alpha:-0.1);
+		position: absolute;
+		left: 0;
+		top: 50%;
+		@include translateY(-50%);
+		width: 50%;
+		border-radius: 5px;
+	}
+
+	.bar-volume-range {
+		position: absolute;
+		left: 0;
+		top: 50%;
+		@include translateY(-50%);
+		width: 100%;
+		background-color: adjust_color($white, $alpha:-0.7);
+		border-radius: 5px;
+		height: 5px;
+
+		&::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			width: 11px;
+			height: 11px;
+			border: 0;
+			background-color: $white;
+			margin-top: -3px;
+			border-radius: 50%;
+		}
+
+		&::-moz-range-thumb {
+			width: 11px;
+			height: 11px;
+			border: 0;
+			background-color: $white;
+		}
+
+		&::-ms-thumb {
+			width: 11px;
+			height: 11px;
+			border: 0;
+			background-color: $white;
+		}
+	}
+
+	.btn-play {
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: 20px 20px;
+		width: 30px;
+		height: 30px;
+		cursor: pointer;
+		display: block;
+		position: relative;
+		left: 0;
+		top: 50%;
+		@include translateY(-50%);
+
+		&.play {
+			background-image: url(../img/ico_play.svg);
+		}
+
+		&.pause {
+			background-image: url(../img/ico_pause.svg);
+		}
+
+		&.replay {
+			background-image: url(../img/ico_replay.svg);
+		}
+	}
+
+	.ico-volume {
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: 20px 20px;
+		width: 30px;
+		max-width: 30px;
+		height: 30px;
+		cursor: pointer;
+		display: block;
+		position: absolute;
+		left: -30px;
+		top: 0;
+
+		&.mute {
+			background-image: url(../img/ico_mute.svg);
+		}
+		
+		&.unmute {
+			background-image: url(../img/ico_unmute.svg);
+		}
+
+		&.hidden {
+			display: none;
+		}
+	}
+
+	.volume-wrapper {
+		width: percentage(50px/300px);
+		display: inline-block;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		right: 5px;
+	}
+	
+}
+
+
+.wrapper {
+	width: 96%;
+	max-width: 300px;
+	margin: 0 auto;
+}
