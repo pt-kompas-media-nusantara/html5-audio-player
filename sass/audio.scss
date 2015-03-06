@@ -66,14 +66,6 @@ $white: #fff;
 		}
 	}
 
-	.controls {
-		height: 30px;
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-	}
-
 	.bar-progress-wrapper {
 		display: inline-block;
 		width: percentage(130px/300px);
@@ -211,6 +203,14 @@ $white: #fff;
 		&.replay {
 			background-image: url(../img/ico_replay.svg);
 		}
+	}
+
+	.controls {
+		height: 30px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
 	}
 
 	.ico-volume {
